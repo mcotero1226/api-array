@@ -49,17 +49,22 @@ function App() {
 
   return (
        <>
-      <h1>Personajes de Rick and Morty</h1>
-      {personajes.map((p) => (
-        <div key={p.id} style={{ border: "1px solid gray", margin: "10px", padding: "10px" }}>
-          <h3>{p.name}</h3>
-          <img src={p.image} alt={p.name} width={120} />
-          <p>🧬 Género: {p.gender}</p>
-          <p>🌍 Ubicación: {p.location.name}</p>
-          <p>📅 Creado: {new Date(p.created).toLocaleDateString()}</p>
+      <div className="mx-10 grid lg:grid-cols-3 gap-11 items-center">
+        {personajes.map((p) => (
+          <div
+            key={p.id}
+            className="bg-gray-800 text-white rounded-2xl shadow-lg w-[450px] h-[200px] flex flex-col items-center justify-center"
+          >
+            <img src={p.image} alt={p.name} className="w-24 h-24 rounded-full object-cover" />
+            <h3 className="text-lg font-semibold mt-2">{p.name}</h3>
+            <p className="text-sm text-gray-400">{p.location.name}</p>
+            <p >{p.gender}</p>
+            <p >{p.created}</p>
 
-        </div>
-      ))}
+          </div>
+        ))}
+      </div>
+      ))
     </>
 
 
